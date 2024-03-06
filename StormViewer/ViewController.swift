@@ -40,6 +40,9 @@ class ViewController: UITableViewController {
 }
 
 #Preview {
-  let button = ViewController()
-  return button
+    UIStoryboard(
+        name: "Main",
+        bundle: nil
+    )
+    .instantiateInitialViewController()!
 }
