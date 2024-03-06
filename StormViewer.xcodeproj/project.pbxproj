@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F05D6022B9911D200D92A2A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F05D6012B9911D200D92A2A /* DetailViewController.swift */; };
 		9F3DB1832B984A1500F4D20C /* nssl0033.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F3DB1782B984A1500F4D20C /* nssl0033.jpg */; };
 		9F3DB1842B984A1500F4D20C /* nssl0034.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F3DB1792B984A1500F4D20C /* nssl0034.jpg */; };
 		9F3DB1852B984A1500F4D20C /* nssl0041.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F3DB17A2B984A1500F4D20C /* nssl0041.jpg */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F05D6012B9911D200D92A2A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9F3DB1782B984A1500F4D20C /* nssl0033.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0033.jpg; sourceTree = "<group>"; };
 		9F3DB1792B984A1500F4D20C /* nssl0034.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0034.jpg; sourceTree = "<group>"; };
 		9F3DB17A2B984A1500F4D20C /* nssl0041.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0041.jpg; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				9FF023692B98342500E61FC6 /* AppDelegate.swift */,
 				9FF0236B2B98342500E61FC6 /* SceneDelegate.swift */,
 				9FF0236D2B98342500E61FC6 /* ViewController.swift */,
+				9F05D6012B9911D200D92A2A /* DetailViewController.swift */,
 				9FF0236F2B98342500E61FC6 /* Main.storyboard */,
 				9FF023722B98342700E61FC6 /* Assets.xcassets */,
 				9FF023742B98342700E61FC6 /* LaunchScreen.storyboard */,
@@ -189,6 +192,7 @@
 				9FF0236E2B98342500E61FC6 /* ViewController.swift in Sources */,
 				9FF0236A2B98342500E61FC6 /* AppDelegate.swift in Sources */,
 				9FF0236C2B98342500E61FC6 /* SceneDelegate.swift in Sources */,
+				9F05D6022B9911D200D92A2A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
