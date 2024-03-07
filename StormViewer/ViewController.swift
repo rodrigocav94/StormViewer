@@ -12,9 +12,15 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavBar()
         populatePictures()
     }
 
+    func configureNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Storm  Viewer"
+    }
+    
     func populatePictures() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath! // iOS projects always habe a resource path.
