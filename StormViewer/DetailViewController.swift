@@ -41,23 +41,14 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-//#Preview {
-//    UIStoryboard(
-//        name: "Detail",
-//        bundle: nil
-//    )
-//    .instantiateInitialViewController()!
-//}
+#Preview {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
+    vc.selectedImage = "nssl0033.jpg"
+    vc.index = 1
+    vc.total = 10
+    let navController = UINavigationController(rootViewController: vc)
+    return navController
+}
