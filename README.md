@@ -1,4 +1,4 @@
-**StormViewer**
+# StormViewer**
 
 A user-friendly app allowing easy browsing of National Severe Storms Laboratory images, enabling users to select and view their preferred images.
 
