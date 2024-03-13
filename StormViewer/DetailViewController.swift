@@ -52,8 +52,9 @@ class DetailViewController: UIViewController {
             print("No image found")
             return
         }
+        let activityItems =  [image, selectedImage as Any]
 
-        let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // Which item made the sharesheet appear on iPad
         present(vc, animated: true)
     }
