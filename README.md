@@ -1,7 +1,8 @@
 # StormViewer
 
 A user-friendly app allowing easy browsing of National Severe Storms Laboratory images, enabling users to select, view and share their preferred images.
-<br>
+
+
 Technologies: Table View, Image View, App Bundle, FileManager, Typecasting, View controller, Outlet, Auto Layout, UIImage, UIBarButtonItem, UIActivityViewController.
 
 
