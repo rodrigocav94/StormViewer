@@ -19,6 +19,11 @@ class ViewController: UITableViewController {
     func configureNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Storm  Viewer"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .action,
+            target: self,
+            action: #selector(recommendTapped)
+        )
     }
     
     func populatePictures() {
@@ -53,6 +58,14 @@ class ViewController: UITableViewController {
             vc.total = pictures.count
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    @objc func recommendTapped() {
+        let message = "Experience the awe-inspiring force of nature with StormViewer. Browse, select, and share stunning images from the National Severe Storms Laboratory effortlessly."
+
+        let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // Which item made the sharesheet appear on iPad
+        present(vc, animated: true)
     }
 }
 
