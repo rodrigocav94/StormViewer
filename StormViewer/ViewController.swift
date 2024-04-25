@@ -9,13 +9,13 @@ import UIKit
 
 class ViewController: UITableViewController {
     var pictures = [String]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavBar()
-        populatePictures()
+        performSelector(inBackground: #selector(populatePictures), with: nil)
     }
-
+    
     func configureNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Storm  Viewer"
@@ -26,18 +26,26 @@ class ViewController: UITableViewController {
         )
     }
     
-    func populatePictures() {
+    @objc func populatePictures() {
         let fm = FileManager.default
-        let path = Bundle.main.resourcePath! // iOS projects always habe a resource path.
+        let path = Bundle.main.resourcePath! // iOS projects always have a resource path.
         let items = try! fm.contentsOfDirectory(atPath: path) // Impossible to run any project without loading the resource content.
+        
+        var bundlePictures = [String]()
         
         for item in items {
             if item.hasPrefix("nssl") {
                 // This is a picture to load!
-                pictures.append(item)
+                bundlePictures.append(item)
             }
         }
-        pictures.sort()
+        
+        bundlePictures.sort()
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.pictures = bundlePictures
+            self?.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,9 +70,9 @@ class ViewController: UITableViewController {
     
     @objc func recommendTapped() {
         let message = "Experience the awe-inspiring force of nature with StormViewer. Browse, select, and share stunning images from the National Severe Storms Laboratory effortlessly."
-
+        
         let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
-        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // Which item made the sharesheet appear on iPad
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // Which item made the ShareSheet appear on iPad
         present(vc, animated: true)
     }
 }
