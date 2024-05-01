@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UICollectionViewController {
     var pictures = [String]()
     
     override func viewDidLoad() {
@@ -44,24 +44,29 @@ class ViewController: UITableViewController {
         
         DispatchQueue.main.async { [weak self] in
             self?.pictures = bundlePictures
-            self?.tableView.reloadData()
+            self?.collectionView.reloadData()
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pictures.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as? NSSLCell else { fatalError() }
+        let fileName = pictures[indexPath.item]
+        cell.image.image = UIImage(named: fileName)
+        cell.name.text = fileName
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.darkGray.cgColor
+        cell.layer.borderWidth = 4
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            vc.selectedImage = pictures[indexPath.row]
-            let pictureIndex = indexPath.row + 1
+            vc.selectedImage = pictures[indexPath.item]
+            let pictureIndex = indexPath.item + 1
             vc.index = pictureIndex
             vc.total = pictures.count
             navigationController?.pushViewController(vc, animated: true)
