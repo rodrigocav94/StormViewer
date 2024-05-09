@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UICollectionViewController {
     var pictures = [String]()
+    var selectedItem: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,10 @@ class ViewController: UICollectionViewController {
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.borderWidth = 4
+        
+        let defaults = UserDefaults.standard
+        cell.viewCount.text = String(defaults.integer(forKey: fileName))
+        cell.stackView.layer.cornerRadius = 6
         return cell
     }
     
@@ -69,6 +74,7 @@ class ViewController: UICollectionViewController {
             let pictureIndex = indexPath.item + 1
             vc.index = pictureIndex
             vc.total = pictures.count
+            self.selectedItem = indexPath
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -79,6 +85,12 @@ class ViewController: UICollectionViewController {
         let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // Which item made the ShareSheet appear on iPad
         present(vc, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedItem {
+            collectionView.reloadItems(at: [selectedItem])
+        }
     }
 }
 

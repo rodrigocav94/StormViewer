@@ -11,4 +11,8 @@ class NSSLCell: UICollectionViewCell {
     @IBOutlet var image: UIImageView!
     
     @IBOutlet var name: UILabel!
+    
+    @IBOutlet var stackView: UIStackView!
+    
+    @IBOutlet var viewCount: UILabel!
 }

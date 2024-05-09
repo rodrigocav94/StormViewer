@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,12 +43,37 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="89v-di-bJn">
+                                            <rect key="frame" x="61" y="0.0" width="47" height="23.666666666666668"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-gP-4u8">
+                                                    <rect key="frame" x="7.9999999999999991" y="6.3333333333333348" width="14.666666666666661" height="10.666666666666664"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <imageReference key="image" image="eye.fill" catalog="system" symbolScale="small"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="12"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elo-Sg-eKh">
+                                                    <rect key="frame" x="30.666666666666668" y="3.9999999999999991" width="8.3333333333333321" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <edgeInsets key="layoutMargins" top="4" left="8" bottom="4" right="8"/>
+                                        </stackView>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="89v-di-bJn" firstAttribute="top" secondItem="5zH-Ig-TBV" secondAttribute="top" id="c1f-Pb-dEI"/>
+                                    <constraint firstAttribute="trailing" secondItem="89v-di-bJn" secondAttribute="trailing" id="iHy-go-gVx"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="image" destination="BYF-FL-lXX" id="aba-nC-wuC"/>
                                     <outlet property="name" destination="jkG-bL-8VG" id="ch7-2V-kvI"/>
+                                    <outlet property="stackView" destination="89v-di-bJn" id="ycl-bJ-A4R"/>
+                                    <outlet property="viewCount" destination="Elo-Sg-eKh" id="WY4-mp-nf2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -111,6 +137,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="eye.fill" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

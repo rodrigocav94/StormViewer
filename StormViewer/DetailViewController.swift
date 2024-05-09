@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         configureNavBar()
         loadImage()
+        increaseViewCount()
     }
     
     func configureNavBar() {
@@ -57,6 +58,14 @@ class DetailViewController: UIViewController {
         let vc = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // Which item made the sharesheet appear on iPad
         present(vc, animated: true)
+    }
+    
+    func increaseViewCount() {
+        guard let selectedImage else { return }
+        let defaults = UserDefaults.standard
+        let previousValue = defaults.integer(forKey: selectedImage)
+        let newValue = previousValue + 1
+        defaults.setValue(newValue, forKey: selectedImage)
     }
 }
 
