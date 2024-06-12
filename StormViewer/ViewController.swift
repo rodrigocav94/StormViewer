@@ -75,6 +75,9 @@ class ViewController: UICollectionViewController {
             vc.index = pictureIndex
             vc.total = pictures.count
             self.selectedItem = indexPath
+            
+            assert(vc.selectedImage != nil, "Selected image should not be empty.")
+            
             navigationController?.pushViewController(vc, animated: true)
         }
     }
